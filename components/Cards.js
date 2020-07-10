@@ -67,27 +67,55 @@ return card
 
 
 
-
 const cardLink = 'https://lambda-times-backend.herokuapp.com/articles'
 
 axios.get(cardLink).then(function(value){
-    
-    value.data.articles.bootstrap.forEach(item => {
-        parentCard.appendChild(createCard(item))
+    const allTheTabs = document.querySelectorAll('.tab')
+    console.log(allTheTabs[0])
+    allTheTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            console.log(tab)
+        if(tab.textContent === 'javascript'){
+            value.data.articles.javascript.forEach(item => {
+                return parentCard.appendChild(createCard(item))
+            })
+        }else if(tab.textContent === 'bootstrap'){
+
+            value.data.articles.bootstrap.forEach(item => {
+                return parentCard.appendChild(createCard(item))
+            })
+        }else if(tab.textContent === 'technology'){
+            value.data.articles.technology.forEach(item => {
+                return parentCard.appendChild(createCard(item))
+            })
+        }else if(tab.textContent === 'jquery'){
+            value.data.articles.jquery.forEach(item => {
+                return parentCard.appendChild(createCard(item))
+            })
+        }else if (tab.textContent === 'node.js'){
+            value.data.articles['node.js'].forEach(item => {
+                return parentCard.appendChild(createCard(item))
+                
+            })
+        }
     })
-    value.data.articles.javascript.forEach(item => {
-        parentCard.appendChild(createCard(item))
     })
-    value.data.articles.technology.forEach(item => {
-        parentCard.appendChild(createCard(item))
-    })
-    value.data.articles.jquery.forEach(item => {
-        parentCard.appendChild(createCard(item))
-    })
-    value.data.articles['node.js'].forEach(item => {
-        parentCard.appendChild(createCard(item))
+    // value.data.articles.bootstrap.forEach(item => {
+    //     parentCard.appendChild(createCard(item))
+    // })
+    // value.data.articles.javascript.forEach(item => {
+    //     parentCard.appendChild(createCard(item))
+    // })
+    // value.data.articles.technology.forEach(item => {
+    //     parentCard.appendChild(createCard(item))
+    // })
+    // value.data.articles.jquery.forEach(item => {
+    //     parentCard.appendChild(createCard(item))
+    // })
+    // value.data.articles['node.js'].forEach(item => {
+    //     parentCard.appendChild(createCard(item))
         
-    })
+    // })
 })
 
 
