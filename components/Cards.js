@@ -100,28 +100,8 @@ axios.get(cardLink).then(function(value){
         }
     })
     })
-    // value.data.articles.bootstrap.forEach(item => {
-    //     parentCard.appendChild(createCard(item))
-    // })
-    // value.data.articles.javascript.forEach(item => {
-    //     parentCard.appendChild(createCard(item))
-    // })
-    // value.data.articles.technology.forEach(item => {
-    //     parentCard.appendChild(createCard(item))
-    // })
-    // value.data.articles.jquery.forEach(item => {
-    //     parentCard.appendChild(createCard(item))
-    // })
-    // value.data.articles['node.js'].forEach(item => {
-    //     parentCard.appendChild(createCard(item))
-        
-    // })
-})
 
-
-    
-
-.catch(function(error){
+}).catch(function(error){
     console.log('These are not the droids you are looking for')
 })
 
