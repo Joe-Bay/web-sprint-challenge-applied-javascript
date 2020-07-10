@@ -10,6 +10,7 @@
 //
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
+const parentofHeader = document.querySelector('.header-container')
 
 function header() {
     // create my elements
@@ -36,3 +37,5 @@ function header() {
 
     return headDiv
 }
+
+parentofHeader.appendChild(header());
