@@ -51,15 +51,14 @@ imageContainer.appendChild(image)
 author.appendChild(authorName)
 
 // add the text to each element
-image.src = dataArrObj.data.article.authorPhoto
+image.src = dataArrObj.authorPhoto
 
-headLine.textContent = dataArrObj.data.article.headline
-authorName.textContent = dataArrObj.data.article.authorName
+headLine.textContent = dataArrObj.headline
+authorName.textContent = dataArrObj.authorName
 
-
-
-
-
+card.addEventListener('click', () =>{
+    console.log(headLine)
+})
 
 return card
 }
@@ -68,11 +67,33 @@ return card
 
 
 
+
 const cardLink = 'https://lambda-times-backend.herokuapp.com/articles'
 
 axios.get(cardLink).then(function(value){
-    console.log(value)
-}).catch(function(error){
+    
+    value.data.articles.bootstrap.forEach(item => {
+        parentCard.appendChild(createCard(item))
+    })
+    value.data.articles.javascript.forEach(item => {
+        parentCard.appendChild(createCard(item))
+    })
+    value.data.articles.technology.forEach(item => {
+        parentCard.appendChild(createCard(item))
+    })
+    value.data.articles.jquery.forEach(item => {
+        parentCard.appendChild(createCard(item))
+    })
+    value.data.articles['node.js'].forEach(item => {
+        parentCard.appendChild(createCard(item))
+        
+    })
+})
+
+
+    
+
+.catch(function(error){
     console.log('These are not the droids you are looking for')
 })
 
